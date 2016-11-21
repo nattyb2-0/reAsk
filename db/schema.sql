@@ -1,0 +1,25 @@
+BEGIN;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS questions;
+
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY
+  username VARCHAR PRIMARY KEY,
+  course VARCHAR NOT NULL,
+  email VARCHAR NOT NULL,
+  password VARCHAR NOT NULL,
+  type VARCHAR NOT NULL
+  );
+
+
+CREATE TABLE questions (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR REFERENCES users,
+  votes INT NOT NULL,
+  question_body VARCHAR NOT NULL,
+  tag VARCHAR NOT NULL
+);
+
+COMMIT;
