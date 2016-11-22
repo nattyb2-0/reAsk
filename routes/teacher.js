@@ -1,13 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-
+// get request for data about students to api
 router.get('/', (req, res) => {
-  res.send('welcome to reAsk')
+  res.send('this is the route that will render the teachers view')
 });
-
-router.post('/:id', (req, res) => {
-
-})
 
 module.exports = router;
