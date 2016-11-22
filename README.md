@@ -33,3 +33,33 @@ Questions are used as an anonymous way to get students to open up about their do
 - [ ] magic
 
 ![cats](https://media.giphy.com/media/q6Nv0XwhRgJcQ/giphy.gif )
+
+## General Aproach
+Using a React based app we will construct a website that uses restful routing to access a PSQL database. The database will be modified by the users that will add questions via their user endpoint. We will provide a temporary system for user login to differentiate between users and teachers.  
+Questions in general will be anonymous to encourage openness and confidence in students. Students will not view who asked the question or up-voted the poll, but the teachers will be able to see that information.
+Teachers will have administrator privileges and will also be able to complete a question once he considers it answered. Teachers will also be able to review questions made on previous sessions, providing.
+In regards to the restful routing process, we will not implement a delete, but instead a soft delete to still have the queries saved for future reference of the teacher or the student that created it.
+We will be using modals to insert information and
+
+![yeah](https://media.giphy.com/media/ULyYV5amK2eYM/giphy.gif)
+
+## ERDs
+
+Questions | type |
+--- | --- |
+ID | SERIAL NOT NULL (primary key)
+Timestamp | Current Date NOT NULL, DEFAULT CURRENT DATE
+USERID | INTEGER NOT NULL (foreign key)
+Votes | INTEGER, DEFAULT 0
+QuestionBody | VARCHAR(255) NOT NULL
+Type (open/closed) | VARCHAR NOT NULL, DEFAULT OPEN
+Tags | VARCHAR, DEFAULT ''
+
+Users | Type
+--- | --- |
+ID | SERIAL NOT NULL (primary key)
+username | VARCHAR NOT NULL
+GA course | VARCHAR NOT NULL
+Email | VARCHAR NOT NULL
+Password | VARCHAR NOT NULL
+-Type (student, teacher, guest) | VARCHAR NOT NULL
