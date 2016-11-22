@@ -1,5 +1,5 @@
 {
-  "name": "reask",
+  "name": "reAsk",
   "version": "1.0.0",
   "description": "React Application that takes in questions from students and lets them upvote questions to give priority while answering",
   "main": "server.js",
