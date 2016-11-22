@@ -8,8 +8,8 @@ INSERT INTO users (username, course, email, password, type) VALUES
 
 INSERT INTO questions (username, votes, question_title, question_body, question_tags) VALUES
 
-  ('taka', 3, 'question about position: relative', 'what is this shit?', 'css')
-  ('natty', 6, 'What is react used for','Why can\'t i use something else other than react?', 'react');
+  ('taka', 3, 'question about position: relative', 'what is this shit?', 'css'),
+  ('natty', 6, 'What is react used for', 'Why can I not use something else other than react?', 'react');
 
 COMMIT;
 
