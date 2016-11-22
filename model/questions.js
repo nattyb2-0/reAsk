@@ -5,6 +5,7 @@ function showAllQuestions(req, res, next) {
   db.any('SELECT * FROM questions;')
     .then(questions => {
       res.questions = questions;
+      console.log(questions)
       next();
     })
     .catch(error => next(error));

@@ -1,3 +1,4 @@
+require('dotenv').config({ silent: true });
 const express = require('express');
 const router = express.Router();
 const {showAllStudents,showAllTeachers} = require('../model/users');
@@ -17,7 +18,7 @@ router.get('/teachers', showAllTeachers, (req, res) => {
 
 //get request for data about questions to api
 router.get('/questions', showAllQuestions,(req, res) => {
-  res.send('the api route for questions data  is set up, this will show all data for questions')
+ res.json(res.questions || []);
 });
 
 
