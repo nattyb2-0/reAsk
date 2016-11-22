@@ -1,4 +1,3 @@
-
 //this function will query the database and  get all the users that are students from user table
 function showAllStudents(){
   db.any('SELECT * from users WHERE ;')
@@ -10,7 +9,7 @@ function showAllStudents(){
     })
     .catch(error => next(error));
 }
-}
+
 
 //this function will query the database and get all the users that are teachers
 function showAllteachers(){
@@ -23,6 +22,6 @@ function showAllteachers(){
     })
     .catch(error => next(error));
 }
-}
 
-module.exports ={showAllteachers,showAllStudents};
+
+module.exports ={ showAllteachers,showAllStudents };
