@@ -1,3 +1,4 @@
+const db = require('./db');
 //this function will query the database and  get all the users that are students from user table
 function showAllStudents(){
   db.any('SELECT * from users WHERE ;')
@@ -12,7 +13,7 @@ function showAllStudents(){
 
 
 //this function will query the database and get all the users that are teachers
-function showAllteachers(){
+function showAllTeachers(){
   db.any('SELECT * from users WHERE')
     .then((teachers) => {
 
@@ -24,4 +25,4 @@ function showAllteachers(){
 }
 
 
-module.exports ={ showAllteachers,showAllStudents };
+module.exports ={ showAllTeachers,showAllStudents };

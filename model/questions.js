@@ -1,8 +1,8 @@
-const db = require('.db');
+const db = require('./db');
 
 function showAllQuestions(req, res, next) {
   console.log('stupid question')
-  db.any('SELECT * FROM questions';)
+  db.any('SELECT * FROM questions;')
     .then(questions => {
       res.questions = questions;
       next();
