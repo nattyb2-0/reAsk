@@ -8,6 +8,10 @@ textarea {
   resize: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .page-container {
   height: 100vh;
   width: 100vw;
@@ -125,19 +129,7 @@ textarea {
   bottom: 2%;
 }
 
-.cancel-question-btn {
-
-}
-
-.input-tags > input {
-  width: 80%;
-}
-
-.input-tags {
-  display: inline;
-}
-
-.input-question {
+.input-question-container {
   margin-top: 20px;
   width: 100%;
   background-color: #c7dcf4; /* light blue-y */
@@ -145,9 +137,31 @@ textarea {
 }
 
 .input-title {
-  margin-bottom: 20px;
+  position: relative;
+  /*margin-bottom: 20px;*/
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.input-title > p {
+.input-question {
+  padding-top: 10px;
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-tags {
+  padding-top: 10px;
+  position: relative;
+  /*margin-bottom: 20px;*/
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-question-container p {
   font-size: 20px;
+  text-align: left;
 }

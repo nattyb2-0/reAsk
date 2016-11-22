@@ -1,5 +1,7 @@
 $(() => {
 
+  // CLOSE SHIT ###############################
+
   $('.reAsk-button').click(() => {
     console.log('clicked')
     $('.ask-question-modal').css('display', 'block');
@@ -9,15 +11,39 @@ $(() => {
   $('.cover-the-page').click(() => {
     $('.ask-question-modal').css('display', 'none');
     $('.cover-the-page').css('display', 'none');
+    $('textarea').val('')
   })
 
   $('.cancel-question-btn').click(() => {
     $('.ask-question-modal').css('display', 'none');
     $('.cover-the-page').css('display', 'none');
+    $('textarea').val('')
   })
 
   $('.ask-question-btn').click(() => {
     $('.ask-question-modal').css('display', 'none');
     $('.cover-the-page').css('display', 'none');
+
+    let title = $('#title').val()
+    let question = $('#question').val()
+    let tags = $('#tags').val()
+
+    let newTitle = $('<h3></h3>')
+    newTitle.append(title)
+    let newQuestion = $('<p></p>')
+    newQuestion.append(question)
+    let newTags = $('<p></p>')
+    newTags.append(tags)
+
+    let questionContainer = $('<div></div>').addClass('question')
+    questionContainer.append(newQuestion)
+    questionContainer.append(newTags)
+    questionContainer.prepend(newTitle)
+
+    console.log(questionContainer)
+
   })
+
+  //
+
 })
