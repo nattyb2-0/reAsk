@@ -6,4 +6,8 @@ router.get('/', (req, res) => {
   res.send('welcome to reAsk')
 });
 
+router.post('/:id', (req, res) => {
+
+})
+
 module.exports = router;
