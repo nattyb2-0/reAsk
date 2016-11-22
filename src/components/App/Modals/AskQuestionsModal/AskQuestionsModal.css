@@ -1,1 +1,80 @@
-/*nothing*/
+.ask-question-modal {
+  z-index: 2;
+  position: fixed;
+  height: 90vh;
+  width: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*border: 3px solid black;*/
+  background: white;
+  display: none;
+  box-shadow: 0px 5px 10px black;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ask-question-modal > header {
+  height: 60px;
+  line-height: 60px;
+  font-size: 30px;
+  background-color: darkslateblue;
+  text-align: center;
+  color: white;
+}
+.ask-question-modal input {
+  position: relative;
+}
+
+.ask-question-modal button {
+  height: 50px;
+  border-radius: 5%;
+  outline: none;
+  padding: 10px;
+  background: #c7dcf4;
+  color: black;
+}
+
+.button-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2%;
+}
+
+.input-question-container {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #c7dcf4; /* light blue-y */
+  padding-bottom: 20px;
+}
+
+.input-title {
+  position: relative;
+  /*margin-bottom: 20px;*/
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-question {
+  padding-top: 10px;
+  position: relative;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-tags {
+  padding-top: 10px;
+  position: relative;
+  /*margin-bottom: 20px;*/
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-question-container p {
+  font-size: 20px;
+  text-align: left;
+}
