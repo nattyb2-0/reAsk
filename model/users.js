@@ -1,7 +1,10 @@
 const db = require('./db');
 //this function will query the database and  get all the users that are students from user table
 function showAllStudents(req,res,next){
-  db.any('SELECT * from users ;')
+  db.any(`SELECT *
+   FROM users
+   WHERE type= 'student' ;
+   `)
     .then((students) => {
 
       res.students = students;
