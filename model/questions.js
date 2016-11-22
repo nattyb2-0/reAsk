@@ -44,7 +44,4 @@ function upVoteQuestion(req, res, next) {
 // }
 
 
-
-
-
 module.exports = { showAllQuestions, addQuestion, upVoteQuestion };
