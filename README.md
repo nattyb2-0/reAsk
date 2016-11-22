@@ -23,14 +23,14 @@ Questions are used as an anonymous way to get students to open up about their do
 ![wireframe](./public/images/wireframe.png)
 
 ## Technologies used
-- [ ] React.js
-- [ ] Node.js
-- [ ] Express
-- [ ] PSQL
-- [ ] JSX
-- [ ] CSS
-- [ ] Restful Routing
-- [ ] magic
+- [x] React.js
+- [x] Node.js
+- [x] Express
+- [x] PSQL
+- [x] JSX
+- [x] CSS
+- [x] Restful Routing
+- [x] magic
 
 ![cats](https://media.giphy.com/media/q6Nv0XwhRgJcQ/giphy.gif )
 
@@ -63,3 +63,22 @@ GA course | VARCHAR NOT NULL
 Email | VARCHAR NOT NULL
 Password | VARCHAR NOT NULL
 -Type (student, teacher, guest) | VARCHAR NOT NULL
+
+## Component layout
+```
+|_ src
+    |_ components
+        |_ App
+            |_ MainHeader
+            |    |_ MainHeader.jsx
+            |    |_ MainHeader.css  
+            |_ MainBodyContainer
+            |    |_ QuestionsContainer
+            |    |   |_ Question
+            |    |_ WordClodContainer
+            |_ Modals
+                 |_ ModalBackground
+                 |_ AskQuestionModal
+                 |_ SignInModal
+                 |_ SignUpModal
+```
