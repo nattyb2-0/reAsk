@@ -2,6 +2,56 @@ import React from 'react'
 import './AskQuestionsModal.css'
 
 class AskQuestionsModal extends React.Component {
+
+  cancelQuestionBtn() {
+    // Declare variables
+    const askQuestionModal = document.querySelector('.ask-question-modal')
+    const coverThePage = document.querySelector('.cover-the-page')
+
+    // Hides the modal and opaque background
+    askQuestionModal.style.display = 'none'
+    coverThePage.style.display = 'none'
+  }
+
+  askQuestionBtn() {
+    // Declare variables
+    const askQuestionModal = document.querySelector('.ask-question-modal')
+    const coverThePage = document.querySelector('.cover-the-page')
+    const questions = document.querySelector('.questions')
+
+    // Hides the modal and opaque background
+    askQuestionModal.style.display = 'none'
+    coverThePage.style.display = 'none'
+
+    // Grabbing the values in each textarea
+    let title = document.querySelector('#title').value
+    let question = document.querySelector('#question').value
+    let tags = document.querySelector('#tags').value
+
+    // Puts the values into elements
+    let newTitle = document.createElement('h3')
+    newTitle.innerHTML = title
+    let newQuestion = document.createElement('p')
+    newQuestion.innerHTML = question
+    let newTags = document.createElement('p')
+    newTags.innerHTML = `tags: ${tags}`
+
+    // Creates a container and appends all the previous information into it
+    let questionContainer = document.createElement('div')
+    questionContainer.className = 'question'
+    questionContainer.append(newQuestion)
+    questionContainer.append(newTags)
+    questionContainer.prepend(newTitle)
+
+    // Prepends the question into the container
+    questions.prepend(questionContainer)
+
+    // Reset values
+    document.getElementById('title').value = ''
+    document.getElementById('question').value = ''
+    document.getElementById('tags').value = ''
+  }
+
   render() {
     return(
       <div className='ask-question-modal'>
@@ -25,8 +75,8 @@ class AskQuestionsModal extends React.Component {
         </div>
 
         <div className='button-container'>
-          <button className='cancel-question-btn'>I changed my mind...</button>
-          <button className='ask-question-btn'>Ask away!</button>
+          <button className='cancel-question-btn' onClick={this.cancelQuestionBtn.bind(this)}>I changed my mind...</button>
+          <button className='ask-question-btn' onClick={this.askQuestionBtn.bind(this)}>Ask away!</button>
         </div>
       </div>
     )
