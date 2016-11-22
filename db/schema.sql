@@ -20,7 +20,7 @@ CREATE TABLE questions (
   votes INT NOT NULL,
   question_title VARCHAR NOT NULL,
   question_body VARCHAR NOT NULL,
-  tag VARCHAR NOT NULL
+  question_tag VARCHAR NOT NULL
 );
 
 ALTER TABLE ONLY users

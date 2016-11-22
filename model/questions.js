@@ -32,5 +32,19 @@ function upVoteQuestion(req, res, next) {
           .catch(err => next(err))
 }
 
+// ///this function will query the database and sort the data by the amount of votes
+// function showQuestionsByVote(){
+
+// };
+
+
+// // this function will query the database and sort the data by date or timestamp created
+// function showByNewest(){
+
+// }
+
+
+
+
 
 module.exports = { showAllQuestions, addQuestion, upVoteQuestion };
