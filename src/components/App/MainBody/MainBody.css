@@ -1,1 +1,14 @@
-/*nothing*/
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.right-side {
+  height: 80vh;
+  width: 55%;
+  border: 2px solid black;
+}
