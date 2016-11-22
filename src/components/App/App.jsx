@@ -1,10 +1,11 @@
 import React from 'react'
+import './App.css'
 
 class App extends React.Component {
   render() {
     return(
       <div>
-        <h1>WORKING APP COMPONENT</h1>
+        <header className='main-header'>reAsk</header>
       </div>
     )
   }
