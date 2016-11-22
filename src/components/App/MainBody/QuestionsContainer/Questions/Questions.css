@@ -1,6 +1,6 @@
 .questions {
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .question {
