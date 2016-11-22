@@ -60,7 +60,7 @@ button {
 .right-side {
   height: 80vh;
   width: 55%;
-  border: 2px solid red;
+  border: 2px solid black;
 }
 
 .reAsk-button {
@@ -83,6 +83,7 @@ button {
   border-bottom: 1px solid black;
   margin: 5px 0;
   background: antiquewhite;
+  cursor: pointer;
 }
 
 .ask-question-modal {
@@ -164,4 +165,8 @@ button {
 .input-question-container p {
   font-size: 20px;
   text-align: left;
+}
+
+.hover {
+  background-color: red;
 }
