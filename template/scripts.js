@@ -1,7 +1,5 @@
 $(() => {
 
-  // CLOSE SHIT ###############################
-
   $('.reAsk-button').click(() => {
     console.log('clicked')
     $('.ask-question-modal').css('display', 'block');
@@ -28,20 +26,25 @@ $(() => {
     let question = $('#question').val()
     let tags = $('#tags').val()
 
-    let newTitle = $('<h3></h3>')
+    let newTitle = $('<h3>')
     newTitle.append(title)
-    let newQuestion = $('<p></p>')
+    let newQuestion = $('<p>')
     newQuestion.append(question)
-    let newTags = $('<p></p>')
-    newTags.append(tags)
+    let newTags = $('<p>')
+    newTags.append(`tags: ${tags}`)
 
-    let questionContainer = $('<div></div>').addClass('question')
+    let questionContainer = $('<div>')
+    questionContainer.addClass('question')
     questionContainer.append(newQuestion)
     questionContainer.append(newTags)
     questionContainer.prepend(newTitle)
 
-    console.log(questionContainer)
+    $('.questions').prepend(questionContainer)
+    $('textarea').val('')
+  })
 
+  $('.question').click((e) => {
+    console.log(e)
   })
 
   //
