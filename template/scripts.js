@@ -11,4 +11,13 @@ $(() => {
     $('.cover-the-page').css('display', 'none');
   })
 
+  $('.cancel-question-btn').click(() => {
+    $('.ask-question-modal').css('display', 'none');
+    $('.cover-the-page').css('display', 'none');
+  })
+
+  $('.ask-question-btn').click(() => {
+    $('.ask-question-modal').css('display', 'none');
+    $('.cover-the-page').css('display', 'none');
+  })
 })
