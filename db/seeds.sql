@@ -6,7 +6,7 @@ INSERT INTO users (username, course, email, password, type) VALUES
     'WDI60Zonkeys',
     'takataka@ga.edu',
     'ahrens',
-    'type of thing'
+    'type of thing? Open/Closed'
   );
 
 INSERT INTO questions (username, votes, question_body, tag) VALUES

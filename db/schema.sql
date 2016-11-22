@@ -22,4 +22,14 @@ CREATE TABLE questions (
   tag VARCHAR NOT NULL
 );
 
+ALTER TABLE ONLY users
+ADD CONSTRAINT username_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY questions
+ADD CONSTRAINT id_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY questions
+ADD CONSTRAINT username_fkey FOREIGN KEY (username)
+REFERENCES users(id);
+
 COMMIT;
