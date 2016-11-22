@@ -11,8 +11,10 @@ const PORT    = process.argv[2] || process.env.port || 3000;
 
 app.use(logger('dev'));
 
-//set up middleware route for our home route and use it
+//set up middleware routes use it
 const homeRouter = require('./routes/home');
-app.use('/', homeRouter)
+const apiRouter  = require('./routes/api');
+app.use('/api', apiRouter);
+app.use('/', homeRouter);
 
 app.listen(PORT, () => console.log('server here! listening on', PORT));
