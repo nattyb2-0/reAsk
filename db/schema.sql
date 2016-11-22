@@ -18,6 +18,7 @@ CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   username VARCHAR REFERENCES users,
   votes INT NOT NULL,
+  question_title VARCHAR NOT NULL,
   question_body VARCHAR NOT NULL,
   tag VARCHAR NOT NULL
 );
