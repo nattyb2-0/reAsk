@@ -11,6 +11,11 @@ class AskQuestionsModal extends React.Component {
     // Hides the modal and opaque background
     askQuestionModal.style.display = 'none'
     coverThePage.style.display = 'none'
+
+    // Reset values
+    title.value = ''
+    question.value = ''
+    tags.value = ''
   }
 
   askQuestionBtn() {
@@ -21,12 +26,16 @@ class AskQuestionsModal extends React.Component {
     const questions = document.querySelector('.questions')
 
     // Grabbing the values in each textarea
-    let title = document.querySelector('#title').value
-    let question = document.querySelector('#question').value
-    let tags = document.querySelector('#tags').value
+    let title = document.querySelector('#title')
+    let question = document.querySelector('#question')
+    let tags = document.querySelector('#tags')
+
+    title.style.border = '1px solid darkgrey'
+    question.style.border = '1px solid darkgrey'
 
 
-    if (title.value != "" && question.value != "") {
+
+    if (title.value != '' && question.value != '') {
 
       // Hides the modal and opaque background
       askQuestionModal.style.display = 'none'
@@ -34,11 +43,11 @@ class AskQuestionsModal extends React.Component {
 
       // Puts the values into elements
       let newTitle = document.createElement('h3')
-      newTitle.innerHTML = title
+      newTitle.innerHTML = title.value
       let newQuestion = document.createElement('p')
-      newQuestion.innerHTML = question
+      newQuestion.innerHTML = question.value
       let newTags = document.createElement('p')
-      newTags.innerHTML = `tags: ${tags}`
+      newTags.innerHTML = `tags: ${tags.value}`
 
       // Creates a container and appends all the previous information into it
       let questionContainer = document.createElement('div')
@@ -51,11 +60,16 @@ class AskQuestionsModal extends React.Component {
       questions.prepend(questionContainer)
 
       // Reset values
-      document.getElementById('title').value = ''
-      document.getElementById('question').value = ''
-      document.getElementById('tags').value = ''
+      title.value = ''
+      question.value = ''
+      tags.value = ''
+
     } else {
-      console.log('somethings missing')
+      if (title.value != '') {
+        question.style.border = '2px solid red'
+      } else if (question.value != '') {
+        title.style.border = '2px solid red'
+      }
     }
   }
 

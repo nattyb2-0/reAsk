@@ -9,6 +9,8 @@ $(() => {
   $('.cover-the-page').click(() => {
     $('.ask-question-modal').css('display', 'none');
     $('.cover-the-page').css('display', 'none');
+    $('.create-account-modal').css('display', 'none')
+    $('.login-account-modal').css('display', 'none')
     $('textarea').val('')
   })
 
@@ -45,6 +47,18 @@ $(() => {
 
   $('.question').click((e) => {
     console.log(e)
+  })
+
+  $('.login-btn').click(() => {
+    $('.create-account-modal').css('display', 'block')
+    $('.cover-the-page').css('display', 'block');
+  })
+
+  $('.login-text').click(() => {
+    if ($('.create-account-modal').css('display', 'block')) {
+      $('.create-account-modal').css('display', 'none')
+      $('.login-account-modal').css('display', 'block')
+    }
   })
 
   //

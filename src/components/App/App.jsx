@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import AskQuestionsModal from './Modals/AskQuestionsModal/AskQuestionsModal.jsx'
 import MainBody from './MainBody/MainBody.jsx'
+import SignInModal from './Modals/SignInModal/SignInModal.jsx'
 
 class App extends React.Component {
 
@@ -38,6 +39,10 @@ class App extends React.Component {
     coverThePage.style.display = 'none'
   }
 
+  login() {
+
+  }
+
   render() {
     return(
       <div className='page-container'>
@@ -45,7 +50,10 @@ class App extends React.Component {
         <AskQuestionsModal />
         <div className='cover-the-page' onClick={this.hideCoverPage.bind(this)}></div>
 
-        <header className='main-header'>reAsk</header>
+        <div className='header-container'>
+          <header className='main-header'>reAsk</header>
+          <button className='login-btn' onClick={this.login.bind(this)}></button>
+        </div>
 
         <MainBody />
 
