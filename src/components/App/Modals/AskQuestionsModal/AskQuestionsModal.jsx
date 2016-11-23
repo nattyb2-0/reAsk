@@ -15,41 +15,48 @@ class AskQuestionsModal extends React.Component {
 
   askQuestionBtn() {
     // Declare variables
+
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const coverThePage = document.querySelector('.cover-the-page')
     const questions = document.querySelector('.questions')
-
-    // Hides the modal and opaque background
-    askQuestionModal.style.display = 'none'
-    coverThePage.style.display = 'none'
 
     // Grabbing the values in each textarea
     let title = document.querySelector('#title').value
     let question = document.querySelector('#question').value
     let tags = document.querySelector('#tags').value
 
-    // Puts the values into elements
-    let newTitle = document.createElement('h3')
-    newTitle.innerHTML = title
-    let newQuestion = document.createElement('p')
-    newQuestion.innerHTML = question
-    let newTags = document.createElement('p')
-    newTags.innerHTML = `tags: ${tags}`
 
-    // Creates a container and appends all the previous information into it
-    let questionContainer = document.createElement('div')
-    questionContainer.className = 'question'
-    questionContainer.append(newQuestion)
-    questionContainer.append(newTags)
-    questionContainer.prepend(newTitle)
+    if (title.value != "" && question.value != "") {
 
-    // Prepends the question into the container
-    questions.prepend(questionContainer)
+      // Hides the modal and opaque background
+      askQuestionModal.style.display = 'none'
+      coverThePage.style.display = 'none'
 
-    // Reset values
-    document.getElementById('title').value = ''
-    document.getElementById('question').value = ''
-    document.getElementById('tags').value = ''
+      // Puts the values into elements
+      let newTitle = document.createElement('h3')
+      newTitle.innerHTML = title
+      let newQuestion = document.createElement('p')
+      newQuestion.innerHTML = question
+      let newTags = document.createElement('p')
+      newTags.innerHTML = `tags: ${tags}`
+
+      // Creates a container and appends all the previous information into it
+      let questionContainer = document.createElement('div')
+      questionContainer.className = 'question'
+      questionContainer.append(newQuestion)
+      questionContainer.append(newTags)
+      questionContainer.prepend(newTitle)
+
+      // Prepends the question into the container
+      questions.prepend(questionContainer)
+
+      // Reset values
+      document.getElementById('title').value = ''
+      document.getElementById('question').value = ''
+      document.getElementById('tags').value = ''
+    } else {
+      console.log('somethings missing')
+    }
   }
 
   render() {
@@ -60,18 +67,17 @@ class AskQuestionsModal extends React.Component {
         <div className='input-question-container'>
 
           <div className='input-title'>
-            <p>Title</p>
+            <p>Title *</p>
             <textarea id='title' rows="1" cols="70" placeholder="TLDR of your question!"></textarea>
           </div>
           <div className='input-question'>
-            <p>Question</p>
+            <p>Question *</p>
             <textarea id='question' rows="22" cols="70" placeholder="Write your question here!"></textarea>
           </div>
           <div className='input-tags'>
             <p>Tags</p>
             <textarea id='tags' rows="1" cols="70" placeholder="Separate each tag with a comma and a space!"></textarea>
           </div>
-
         </div>
 
         <div className='button-container'>
