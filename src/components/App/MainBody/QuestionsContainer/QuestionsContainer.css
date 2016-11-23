@@ -13,3 +13,7 @@
   color: white;
   outline: none;
 }
+
+.reAsk-button:hover {
+  background: royalblue;
+}
