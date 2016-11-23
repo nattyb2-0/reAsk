@@ -17,9 +17,7 @@
 
       <div class='ask-question-modal'>
         <header>Ask a Question!</header>
-
         <div class='input-question-container'>
-
           <div class='input-title'>
             <p>Title</p>
             <textarea id='title' rows="1" cols="70" placeholder="TLDR of your question!"></textarea>
@@ -32,19 +30,59 @@
             <p>Tags</p>
             <textarea id='tags' rows="1" cols="70" placeholder="Separate each tag with a comma and a space!"></textarea>
           </div>
-
         </div> <!-- input question container -->
-
         <div class='button-container'>
           <button class='cancel-question-btn'>I changed my mind...</button>
           <button class='ask-question-btn'>Ask away!</button>
         </div> <!-- button container -->
       </div> <!-- ask-question-modal -->
 
+      <div class='create-account-modal'>
+        <header>Create Account</header>
+        <div class='circle'></div>
+        <form action="/auth" method='post'>
+          <input type="text" name="user[username]" value="" placeholder="Username *" autocomplete="off" required="required"> <br>
+          <input type="email" name="user[email]" value="" placeholder="Email" autocomplete="off"> <br>
+          <select name="courses">
+            <option disabled>Select Course</option>
+            <option value="wolphons">WDI Wolphins</option>
+            <option value="zonkeys">WDI Zonkeys</option>
+            <option value="anon">Some trash class</option>
+            <option value="anon">Another trash class</option>
+          </select> <br>
+          <input type="password" name="user[password]" value="" placeholder="Password *" autocomplete="off" required="required"> <br>
+          <input type="password" name='user[confirmpassword]' value="" placeholder="Confirm Password *" autocomplete="off" required="required"> <br>
+          <p class='login-text'><i>If you already have an account, log in here</i></p>
+          <input class='create-acc-btn' type="submit" value='Create New Account'>
+        </form>
+      </div> <!-- create-account modal -->
+
+      <div class='login-account-modal'>
+        <header>Log In</header>
+        <div class='circle'></div>
+        <form action="/auth" method='post'>
+          <input type="text" name="user[username]" value="" placeholder="Username *" autocomplete="off" required="required"> <br>
+          <input type="email" name="user[email]" value="" placeholder="Email" autocomplete="off"> <br>
+          <select name="courses">
+            <option disabled>Select Course</option>
+            <option value="wolphons">WDI Wolphins</option>
+            <option value="zonkeys">WDI Zonkeys</option>
+            <option value="anon">Some trash class</option>
+            <option value="anon">Another trash class</option>
+          </select> <br>
+          <input type="password" name="user[password]" value="" placeholder="Password *" autocomplete="off" required="required"> <br>
+          <input type="password" name='user[confirmpassword]' value="" placeholder="Confirm Password *" autocomplete="off" required="required"> <br>
+          <p class='login-text'><i>If you don't have an account, create one here</i></p>
+          <input class='create-acc-btn' type="submit" value='Log In'>
+        </form>
+      </div>
+
       <div class='cover-the-page'></div>
 
-
-      <header>reAsk</header>
+      <div class='header-container'>
+        <header class='main-header'>reAsk</header>
+        <button class='login-btn' onClick={this.login.bind(this)}></button>
+      </div>
 
       <div class='content-wrapper'>
         <div class='questions-container'>
