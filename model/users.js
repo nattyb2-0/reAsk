@@ -58,6 +58,11 @@ function createUser(req, res, next) {
       password: req.body.user.password
     };
 
+    db.none(`
+      INSERT INTO users(username, email, course, password)
+
+      `)
+
     getDB().then((db) => {
       db.collection('users')
         .insert(userObject, (insertErr, dbUser) => {
