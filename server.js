@@ -12,6 +12,7 @@ const app         = express();
 const PORT        = process.argv[2] || process.env.port || 3000;
 
 app.use(logger('dev'));
+app.use(bodyParser.urlencoded());
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'dist')));
 
