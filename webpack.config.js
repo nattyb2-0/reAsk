@@ -22,7 +22,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'reAsk project 3',
+      title: 'reAsk',
       xhtml: true,
       inject: false,
       template: require('html-webpack-template'),
