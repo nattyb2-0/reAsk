@@ -1,9 +1,10 @@
 const db = require('./db');
 //this function will query the database and  get all the users that are students from user table
 function showAllStudents(req,res,next){
-  db.any(`SELECT * username, course, email, type
-   FROM users
-   WHERE type= 'student' ;
+  db.any(`
+    SELECT username, course, email, type
+    FROM users
+    WHERE type = 'student';
    `)
     .then((students) => {
 
@@ -17,7 +18,8 @@ function showAllStudents(req,res,next){
 
 //this function will query the database and get all the users that are teachers
 function showAllTeachers(req,res,next){
-  db.any(`SELECT username, course, email, type
+  db.any(`
+    SELECT username, course, email, type
     FROM users
     WHERE type = 'teacher';
   `)
@@ -31,4 +33,4 @@ function showAllTeachers(req,res,next){
 }
 
 
-module.exports ={ showAllTeachers,showAllStudents };
+module.exports = { showAllTeachers, showAllStudents };

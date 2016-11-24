@@ -55,12 +55,13 @@ $(() => {
   })
 
   $('.login-text').click(() => {
-    if ($('.create-account-modal').css('display', 'block')) {
+    if($('.create-account-modal').css('display') == 'block') {
       $('.create-account-modal').css('display', 'none')
       $('.login-account-modal').css('display', 'block')
+    } else if ($('.login-account-modal').css('display') == 'block') {
+      $('.create-account-modal').css('display', 'block')
+      $('.login-account-modal').css('display', 'none')
     }
   })
-
-  //
 
 })
