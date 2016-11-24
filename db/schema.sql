@@ -10,7 +10,7 @@ CREATE TABLE users (
   course VARCHAR NOT NULL,
   email VARCHAR NOT NULL,
   password VARCHAR NOT NULL,
-  type VARCHAR NOT NULL
+  type VARCHAR NOT NULL DEFAULT 'student'
   );
 
 

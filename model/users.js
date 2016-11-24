@@ -49,7 +49,6 @@ function showAllTeachers(req, res, next){
 }
 
 function createUser(req, res, next) {
-  console.log(req.body)
   if (req.body.user.password === req.body.user.confirmpassword) {
     const userObject = {
       username: req.body.user.username,
@@ -57,17 +56,15 @@ function createUser(req, res, next) {
       course: req.body.user.course,
       password: req.body.user.password
     };
-
-    getDB().then((db) => {
-      db.collection('users')
-        .insert(userObject, (insertErr, dbUser) => {
-          if (insertErr) return next(insertErr);
-
-          res.user = dbUser;
-          db.close();
-          return next();
-        });
-      });
+    db.none(`
+      INSERT INTO users(username, email, course, password)
+      VALUES ('${userObject.username}', '${userObject.email}', '${userObject.course}', '${userObject.password}');
+      `)
+      .then((newUser) => {
+        res.newUser = newUser;
+        next()
+      })
+      .catch(error => next(error));
     } else {
       res.redirect('/')
     }
