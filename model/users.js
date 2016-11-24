@@ -1,5 +1,21 @@
 const db = require('./db');
 
+function showAllUsers(req, res, next){
+  db.any(`
+    SELECT *
+    FROM users;
+   `)
+    .then((users) => {
+
+      res.users = users;
+      console.log(users);
+      next();
+    })
+    .catch(error => next(error));
+}
+
+
+
 //this function will query the database and  get all the users that are students from user table
 function showAllStudents(req, res, next){
   db.any(`
@@ -33,6 +49,7 @@ function showAllTeachers(req, res, next){
 }
 
 function createUser(req, res, next) {
+  console.log(req.body)
   if (req.body.user.password === req.body.user.confirmpassword) {
     const userObject = {
       username: req.body.user.username,
@@ -41,15 +58,15 @@ function createUser(req, res, next) {
       password: req.body.user.password
     };
 
-      getDB().then((db) => {
-        db.collection('users')
-          .insert(userObject, (insertErr, dbUser) => {
-            if (insertErr) return next(insertErr);
+    getDB().then((db) => {
+      db.collection('users')
+        .insert(userObject, (insertErr, dbUser) => {
+          if (insertErr) return next(insertErr);
 
-            res.user = dbUser;
-            db.close();
-            return next();
-          });
+          res.user = dbUser;
+          db.close();
+          return next();
+        });
       });
     } else {
       res.redirect('/')
@@ -57,4 +74,4 @@ function createUser(req, res, next) {
   }
 
 
-module.exports = { showAllTeachers, showAllStudents, createUser };
+module.exports = { showAllUsers, showAllTeachers, showAllStudents, createUser };

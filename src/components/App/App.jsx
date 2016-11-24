@@ -28,10 +28,14 @@ class App extends React.Component {
 
   hideCoverPage() {
     const askQuestionModal = document.querySelector('.ask-question-modal')
+    const createAccountModal = document.querySelector('.create-account-modal')
+    const loginAccountModal = document.querySelector('.login-account-modal')
     const coverThePage = document.querySelector('.cover-the-page')
 
     askQuestionModal.style.display = 'none'
     coverThePage.style.display = 'none'
+    createAccountModal.style.display = 'none'
+    loginAccountModal.style.display = 'none'
   }
 
   login() {
