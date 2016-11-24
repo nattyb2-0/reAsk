@@ -23,7 +23,6 @@ const apiRouter  = require('./routes/api');
 const teacherRouter  = require('./routes/teacher');
 const userRouter = require('./routes/users')
 
-
 // app.use('/', studentRouter);
 app.use('/api', apiRouter);
 app.use('/teacher', teacherRouter);

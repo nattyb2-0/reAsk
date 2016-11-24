@@ -1,8 +1,10 @@
 import React from 'react'
 import './App.css'
+
 import AskQuestionsModal from './Modals/AskQuestionsModal/AskQuestionsModal.jsx'
-import MainBody from './MainBody/MainBody.jsx'
 import SignInModal from './Modals/SignInModal/SignInModal.jsx'
+import SignUpModal from './Modals/SignUpModal/SignUpModal.jsx'
+import MainBody from './MainBody/MainBody.jsx'
 
 class App extends React.Component {
 
@@ -12,24 +14,17 @@ class App extends React.Component {
     this.state = {
       questions: []
     }
-
   }
 
-    componentDidMount() {
-      fetch('/api/questions/')
-      .then(data => data.json())
-      .then(data => {
-        this.setState({
-          questions: data.questions
-        });
+  componentDidMount() {
+    fetch('/api/questions/')
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        questions: data.questions
       });
-    }
-
-
-
-
-
-
+    });
+  }
 
   hideCoverPage() {
     const askQuestionModal = document.querySelector('.ask-question-modal')
@@ -40,13 +35,19 @@ class App extends React.Component {
   }
 
   login() {
+    const createAccountModal = document.querySelector('.create-account-modal')
+    const coverThePage = document.querySelector('.cover-the-page')
 
+    createAccountModal.style.display = 'block'
+    coverThePage.style.display = 'block'
   }
 
   render() {
     return(
       <div className='page-container'>
 
+        <SignUpModal />
+        <SignInModal />
         <AskQuestionsModal />
         <div className='cover-the-page' onClick={this.hideCoverPage.bind(this)}></div>
 
