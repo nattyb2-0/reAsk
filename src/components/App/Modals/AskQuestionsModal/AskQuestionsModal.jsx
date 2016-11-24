@@ -11,45 +11,66 @@ class AskQuestionsModal extends React.Component {
     // Hides the modal and opaque background
     askQuestionModal.style.display = 'none'
     coverThePage.style.display = 'none'
+
+    // Reset values
+    title.value = ''
+    question.value = ''
+    tags.value = ''
   }
 
   askQuestionBtn() {
     // Declare variables
+
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const coverThePage = document.querySelector('.cover-the-page')
     const questions = document.querySelector('.questions')
 
-    // Hides the modal and opaque background
-    askQuestionModal.style.display = 'none'
-    coverThePage.style.display = 'none'
-
     // Grabbing the values in each textarea
-    let title = document.querySelector('#title').value
-    let question = document.querySelector('#question').value
-    let tags = document.querySelector('#tags').value
+    let title = document.querySelector('#title')
+    let question = document.querySelector('#question')
+    let tags = document.querySelector('#tags')
 
-    // Puts the values into elements
-    let newTitle = document.createElement('h3')
-    newTitle.innerHTML = title
-    let newQuestion = document.createElement('p')
-    newQuestion.innerHTML = question
-    let newTags = document.createElement('p')
-    newTags.innerHTML = `tags: ${tags}`
+    title.style.border = '1px solid darkgrey'
+    question.style.border = '1px solid darkgrey'
 
-    // Creates a container and appends all the previous information into it
-    let questionContainer = document.createElement('div')
-    questionContainer.className = 'question'
-    questionContainer.append(newQuestion)
-    questionContainer.append(newTags)
-    questionContainer.prepend(newTitle)
 
-    // Prepends the question into the container
-    questions.prepend(questionContainer)
 
-    // Reset values
-    document.getElementById('title').value = ''
-    document.getElementById('question').value = ''
-    document.getElementById('tags').value = ''
+    if (title.value != '' && question.value != '') {
+
+      // Hides the modal and opaque background
+      askQuestionModal.style.display = 'none'
+      coverThePage.style.display = 'none'
+
+      // Puts the values into elements
+      let newTitle = document.createElement('h3')
+      newTitle.innerHTML = title.value
+      let newQuestion = document.createElement('p')
+      newQuestion.innerHTML = question.value
+      let newTags = document.createElement('p')
+      newTags.innerHTML = `tags: ${tags.value}`
+
+      // Creates a container and appends all the previous information into it
+      let questionContainer = document.createElement('div')
+      questionContainer.className = 'question'
+      questionContainer.append(newQuestion)
+      questionContainer.append(newTags)
+      questionContainer.prepend(newTitle)
+
+      // Prepends the question into the container
+      questions.prepend(questionContainer)
+
+      // Reset values
+      title.value = ''
+      question.value = ''
+      tags.value = ''
+
+    } else {
+      if (title.value != '') {
+        question.style.border = '2px solid red'
+      } else if (question.value != '') {
+        title.style.border = '2px solid red'
+      }
+    }
   }
 
   render() {
@@ -60,18 +81,17 @@ class AskQuestionsModal extends React.Component {
         <div className='input-question-container'>
 
           <div className='input-title'>
-            <p>Title</p>
+            <p>Title *</p>
             <textarea id='title' rows="1" cols="70" placeholder="TLDR of your question!"></textarea>
           </div>
           <div className='input-question'>
-            <p>Question</p>
+            <p>Question *</p>
             <textarea id='question' rows="22" cols="70" placeholder="Write your question here!"></textarea>
           </div>
           <div className='input-tags'>
             <p>Tags</p>
             <textarea id='tags' rows="1" cols="70" placeholder="Separate each tag with a comma and a space!"></textarea>
           </div>
-
         </div>
 
         <div className='button-container'>
