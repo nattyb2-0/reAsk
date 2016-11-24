@@ -25,8 +25,24 @@ class SignInModal extends React.Component {
         <header>Log In</header>
         <div className='circle'></div>
         <form action="/auth" method='post'>
-          <input type="text" name="user[username]" value="" placeholder="Username *" autoComplete="off" required="required" /> <br />
-          <input type="password" name="user[password]" value="" placeholder="Password *" autoComplete="off" required="required" /> <br />
+          <input
+            type="text"
+            name="user[username]"
+            value=""
+            placeholder="Username *"
+            autoComplete="off"
+            required="required"
+            // onChange={function() {}}
+            /> <br />
+          <input
+            type="password"
+            name="user[password]"
+            value=""
+            placeholder="Password *"
+            autoComplete="off"
+            required="required"
+            // onChange={function() {}}
+            /> <br />
           <p className='login-text' onClick={this.switchToCreate.bind(this)}><i>If you don't have an account, create one here</i></p>
           <input className='create-acc-btn' type="submit" value='Log In' />
         </form>
