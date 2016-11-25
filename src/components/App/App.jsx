@@ -26,6 +26,25 @@ class App extends React.Component {
     });
   }
 
+// function to send a post to DB and add new question
+createNewQuestion(question) {
+  console.log('inside create new question');
+  console.log('the OBJ of question -->> ', question);
+  fetch('/api/questions', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(question)
+  })
+  // .then(this.setState({
+  //   questionFormName: '',
+  //   questionFormURL: ''
+  // }))
+  // .then(this.getAllQuestions())
+  .catch(err => console.log(err));
+}
+
   hideCoverPage() {
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const createAccountModal = document.querySelector('.create-account-modal')
@@ -52,7 +71,7 @@ class App extends React.Component {
 
         <SignUpModal />
         <SignInModal />
-        <AskQuestionsModal />
+        <AskQuestionsModal createNewQuestion={this.createNewQuestion}/>
         <div className='cover-the-page' onClick={this.hideCoverPage.bind(this)}></div>
 
         <div className='header-container'>
