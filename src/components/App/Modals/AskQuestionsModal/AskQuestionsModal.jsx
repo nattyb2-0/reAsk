@@ -20,7 +20,6 @@ class AskQuestionsModal extends React.Component {
 
   askQuestionBtn() {
     // Declare variables
-
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const coverThePage = document.querySelector('.cover-the-page')
     const questions = document.querySelector('.questions')
@@ -32,8 +31,6 @@ class AskQuestionsModal extends React.Component {
 
     title.style.border = '1px solid darkgrey'
     question.style.border = '1px solid darkgrey'
-
-
 
     if (title.value != '' && question.value != '') {
 
