@@ -46,12 +46,18 @@ class AskQuestionsModal extends React.Component {
       let newTags = document.createElement('p')
       newTags.innerHTML = `tags: ${tags.value}`
 
+      //creates a button to be used for upvoting//
+      let upVoteBtn = document.createElement('button')
+      upVoteBtn.setAttribute('class', 'upButton')
+      upVoteBtn.innerHTML='UpVote This Question'
+
       // Creates a container and appends all the previous information into it
       let questionContainer = document.createElement('div')
       questionContainer.className = 'question'
       questionContainer.append(newQuestion)
       questionContainer.append(newTags)
       questionContainer.prepend(newTitle)
+      questionContainer.append(upVoteBtn)
 
       // Prepends the question into the container
       questions.prepend(questionContainer)

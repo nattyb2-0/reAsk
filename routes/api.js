@@ -21,7 +21,13 @@ router.get('/questions', showAllQuestions,(req, res) => {
  res.json(res.questions || []);
 });
 
+router.post('/', (req, res) => {
+res.send('fuck you')
+})
 
+router.put('/:id', (req, res) => {
+res.send('fuck you times 2')
+})
 
 
 module.exports = router;

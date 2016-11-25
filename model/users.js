@@ -17,6 +17,8 @@ function showAllUsers(req, res, next){
 
 
 //this function will query the database and  get all the users that are students from user table
+
+
 function showAllStudents(req, res, next){
   db.any(`
     SELECT username, course, email, type
@@ -56,6 +58,7 @@ function createUser(req, res, next) {
       course: req.body.user.course,
       password: req.body.user.password
     };
+
     db.none(`
       INSERT INTO users(username, email, course, password)
       VALUES ('${userObject.username}', '${userObject.email}', '${userObject.course}', '${userObject.password}');
@@ -69,6 +72,13 @@ function createUser(req, res, next) {
       res.redirect('/')
     }
   }
+
+
+
+
+
+
+
 
 
 module.exports = { showAllUsers, showAllTeachers, showAllStudents, createUser };
