@@ -16,14 +16,21 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    fetch('/api/questions/')
+
+getAllQuestions(){
+  fetch('/api/questions/')
     .then(data => data.json())
     .then(data => {
       this.setState({
         questions: data.questions
       });
-    });
+    })
+     .then(this.getAllQuestions())
+  .catch(err => console.log(err));
+}
+
+componentDidMount() {
+   this.getAllQuestions;
   }
 
 // function to send a post to DB and add new question
@@ -41,7 +48,7 @@ createNewQuestion(question) {
   //   questionFormName: '',
   //   questionFormURL: ''
   // }))
-  // .then(this.getAllQuestions())
+   .then(this.getAllQuestions)
   .catch(err => console.log(err));
 }
 
