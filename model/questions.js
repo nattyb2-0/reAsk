@@ -13,8 +13,8 @@ function showAllQuestions(req, res, next) {
 
 function addQuestion(req, res, next) {
 db.one(`
-  INSERT INTO questions (username, votes, question_body, tag)
-  VALUES ($username/, $/votes, $/question_body, $/tag)
+  INSERT INTO questions (username, question_title, question_body, question_tags, votes)
+  VALUES ($/username/, $/question_title/, $/question_body/, $/question_tags/, $/votes/)
   RETURNING *;
   `, req.body)
   .then(questions => {
