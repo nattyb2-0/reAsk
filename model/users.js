@@ -58,6 +58,7 @@ function createUser(req, res, next) {
       course: req.body.user.course,
       password: req.body.user.password
     };
+
     db.none(`
       INSERT INTO users(username, email, course, password)
       VALUES ('${userObject.username}', '${userObject.email}', '${userObject.course}', '${userObject.password}');
@@ -71,6 +72,13 @@ function createUser(req, res, next) {
       res.redirect('/')
     }
   }
-/
+
+
+
+
+
+
+
+
 
 module.exports = { showAllUsers, showAllTeachers, showAllStudents, createUser };
