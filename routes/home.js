@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/:id', (req, res) => {
-
+res.send('fuck you')
 })
+
 
 module.exports = router;
