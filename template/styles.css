@@ -98,6 +98,7 @@ button {
   margin: 5px 0;
   background: antiquewhite;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .ask-question-modal {
@@ -297,7 +298,24 @@ select {
   transform: translate(-50%, -90%);
 }
 
+.question-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
 
+.upvote-arrow {
+  position: relative;
+  left: 0;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.question-content {
+  position: relative;
+  display: inline;
+  height: 100%;
+  width: 90%;
+}
 
 
 
