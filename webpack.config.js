@@ -40,6 +40,10 @@ module.exports = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
+      // {
+      //   test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+      //   loader: 'file-loader',
+      // },
       {
         test: /\.svg$/,
         loader: 'file-loader?name=/img/[name].[hash:base64:5].[ext]'

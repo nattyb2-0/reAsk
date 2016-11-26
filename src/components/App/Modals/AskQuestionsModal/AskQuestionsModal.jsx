@@ -20,7 +20,6 @@ class AskQuestionsModal extends React.Component {
 
   askQuestionBtn() {
     // Declare variables
-    console.log('inside of askQuestionBTN');
 
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const coverThePage = document.querySelector('.cover-the-page')
@@ -42,8 +41,6 @@ class AskQuestionsModal extends React.Component {
 
     title.style.border = '1px solid darkgrey'
     question.style.border = '1px solid darkgrey'
-
-
 
     if (title.value != '' && question.value != '') {
       console.log('this is the question body: -->> ', questionBody);
