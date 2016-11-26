@@ -74,10 +74,10 @@ function createUser(req, res, next) {
     }
   }
 
-function userExist(){
-  get the database
-  check the user name and password agaoinst the db
+// function userExist(){
+//   get the database
+//   check the user name and password agaoinst the db
 
-}
+// }
 //export all the functions so that they may be used else where
 module.exports = { showAllUsers, showAllTeachers, showAllStudents, createUser };
