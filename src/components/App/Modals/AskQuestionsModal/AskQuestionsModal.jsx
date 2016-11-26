@@ -20,6 +20,7 @@ class AskQuestionsModal extends React.Component {
 
   askQuestionBtn() {
     // Declare variables
+
     const askQuestionModal = document.querySelector('.ask-question-modal')
     const coverThePage = document.querySelector('.cover-the-page')
     const questions = document.querySelector('.questions')
@@ -29,38 +30,43 @@ class AskQuestionsModal extends React.Component {
     let question = document.querySelector('#question')
     let tags = document.querySelector('#tags')
 
+    // creating new object to pass to DB
+    const questionBody = {
+      'username': 'taka',
+      'question_title': title.value,
+      'question_body': question.value,
+      'question_tags': tags.value,
+      'votes': 0,
+    }
+
     title.style.border = '1px solid darkgrey'
     question.style.border = '1px solid darkgrey'
 
     if (title.value != '' && question.value != '') {
+      console.log('this is the question body: -->> ', questionBody);
+      this.props.createNewQuestion(questionBody);
 
       // Hides the modal and opaque background
       askQuestionModal.style.display = 'none'
       coverThePage.style.display = 'none'
 
-      // Puts the values into elements
-      let newTitle = document.createElement('h3')
-      newTitle.innerHTML = title.value
-      let newQuestion = document.createElement('p')
-      newQuestion.innerHTML = question.value
-      let newTags = document.createElement('p')
-      newTags.innerHTML = `tags: ${tags.value}`
+      // // Puts the values into elements
+      // let newTitle = document.createElement('h3')
+      // newTitle.innerHTML = title.value
+      // let newQuestion = document.createElement('p')
+      // newQuestion.innerHTML = question.value
+      // let newTags = document.createElement('p')
+      // newTags.innerHTML = `tags: ${tags.value}`
 
-      //creates a button to be used for upvoting//
-      let upVoteBtn = document.createElement('button')
-      upVoteBtn.setAttribute('class', 'upButton')
-      upVoteBtn.innerHTML='UpVote This Question'
+      // // Creates a container and appends all the previous information into it
+      // let questionContainer = document.createElement('div')
+      // questionContainer.className = 'question'
+      // questionContainer.append(newQuestion)
+      // questionContainer.append(newTags)
+      // questionContainer.prepend(newTitle)
 
-      // Creates a container and appends all the previous information into it
-      let questionContainer = document.createElement('div')
-      questionContainer.className = 'question'
-      questionContainer.append(newQuestion)
-      questionContainer.append(newTags)
-      questionContainer.prepend(newTitle)
-      questionContainer.append(upVoteBtn)
-
-      // Prepends the question into the container
-      questions.prepend(questionContainer)
+      // // Prepends the question into the container
+      // questions.prepend(questionContainer)
 
       // Reset values
       title.value = ''

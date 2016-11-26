@@ -2,7 +2,7 @@ require('dotenv').config({ silent: true });
 const express = require('express');
 const router = express.Router();
 const {showAllStudents,showAllTeachers} = require('../model/users');
-const {showAllQuestions} = require('../model/questions')
+const {showAllQuestions, addQuestion} = require('../model/questions')
 // get request for data about students to api
 router.get('/students', showAllStudents, (req, res) => {
   // res.send('the api route for students data  is set up...this will show all data for stucents')
@@ -20,6 +20,11 @@ router.get('/teachers', showAllTeachers, (req, res) => {
 router.get('/questions', showAllQuestions,(req, res) => {
  res.json(res.questions || []);
 });
+
+// post request to add question to DB..the addquestion middleware is required from the model
+router.post('/questions', addQuestion, (req, res) => {
+ res.send('has been posted');
+})
 
 router.post('/', (req, res) => {
 res.send('fuck you')
