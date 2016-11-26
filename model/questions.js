@@ -1,5 +1,7 @@
 const db = require('./db');
-
+//takes a request, reponse and next call as arguments.
+// queries through the database  and the results(questions) is passed to the response object
+// (res.question)to be used wherever this function is exported to
 function showAllQuestions(req, res, next) {
   console.log('stupid question')
   db.any('SELECT * FROM questions;')
@@ -11,6 +13,9 @@ function showAllQuestions(req, res, next) {
     .catch(error => next(error));
 }
 
+//takes a request, reponse and next call as arguments.
+// inserts into  the database  and the results(questions) is passed to the response object
+// (res.question)to be used wherever this function is exported to
 function addQuestion(req, res, next) {
 db.one(`
   INSERT INTO questions (username, question_title, question_body, question_tags, votes)
@@ -24,6 +29,10 @@ db.one(`
   .catch(error => next(error));
 }
 
+//takes a request, reponse and next call as arguments.
+// updates the database by searching for the specified key and changing its
+// value and the results(questions) is passed to the response object
+// (res.question)to be used wherever this function is exported to
 function upVoteQuestion(req, res, next) {
   db.none(`
     UPDATE questions
@@ -35,17 +44,5 @@ function upVoteQuestion(req, res, next) {
     })
     .catch(err => next(err))
 }
-
-// ///this function will query the database and sort the data by the amount of votes
-// function showQuestionsByVote(){
-
-// };
-
-
-// // this function will query the database and sort the data by date or timestamp created
-// function showByNewest(){
-
-// }
-
-
+//export all the functions so that they can be required and used later
 module.exports = { showAllQuestions, addQuestion, upVoteQuestion };
