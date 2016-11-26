@@ -1,26 +1,31 @@
 import React from 'react'
 import './App.css'
 
+//import all other smaller components that the parent wants to use
 import AskQuestionsModal from './Modals/AskQuestionsModal/AskQuestionsModal.jsx'
 import SignInModal from './Modals/SignInModal/SignInModal.jsx'
 import SignUpModal from './Modals/SignUpModal/SignUpModal.jsx'
 import MainBody from './MainBody/MainBody.jsx'
 
+//create a component named app
 class App extends React.Component {
-
+//use the constructor function along with super to bring in all properties of parent
   constructor(props) {
     super(props);
-
-    this.state = {
+    //set whatever initial states that will be changed or modified over time
+      this.state = {
       questions: []
     }
   }
 
-
+//function call to the api to retrieve all questions
 getAllQuestions(){
   fetch('/api/questions/')
+  //data is returned in the form of json
     .then(data => data.json())
     .then(data => {
+      // the state of the question array is updated and passed the value thats held in the
+      // data object
       this.setState({
         questions: data.questions
       });
@@ -29,11 +34,14 @@ getAllQuestions(){
   .catch(err => console.log(err));
 }
 
+//react method for when you are mounting/binding a function to be passed along to
+// children components
 componentDidMount() {
    this.getAllQuestions;
   }
 
-// function to send a post to DB and add new question
+// function to send a post to DB and add new question...fetches the data from api
+// and sends a post request and then calls tge get all questions after wards
 createNewQuestion(question) {
   console.log('inside create new question');
   console.log('the OBJ of question -->> ', question);

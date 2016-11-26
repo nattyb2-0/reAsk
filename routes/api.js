@@ -21,7 +21,7 @@ router.get('/questions', showAllQuestions,(req, res) => {
  res.json(res.questions || []);
 });
 
-// post request to ad question to DB
+// post request to add question to DB..the addquestion middleware is required from the model
 router.post('/questions', addQuestion, (req, res) => {
  res.send('has been posted');
 })
