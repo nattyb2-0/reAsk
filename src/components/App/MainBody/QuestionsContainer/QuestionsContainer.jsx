@@ -44,21 +44,38 @@ import Questions from './Questions/Questions.jsx'
 //   }
 // }
 
+// sorry I had to recreate everything to make sure I was doing the right process.
+// creating a stateless function to append iterated elements to React Components
 const QuestionsContainer = props => {
-  console.log(props);
-  const questions = props.questions.map((q, i) => {
+  // am I passing props correctly?
+  console.log('these are the props inside Questions -->', props);
+  // creating a function that maps through the movies array
+  const renderQuestions = props.questions.map((q, i) => {
     return (
       <Questions
-
+        key={i}
+        votes={q.votes}
+        question_title={q.question_title}
+        question_body={q.question_body}
+        question_tags={q.question_tags}
       />
     )
   });
 
+
+  const askQuestion = () => {
+    const askQuestionModal = document.querySelector('.ask-question-modal')
+    const coverThePage = document.querySelector('.cover-the-page')
+
+    askQuestionModal.style.display = 'block'
+    coverThePage.style.display = 'block'
+  }
+
   return(
     <div className='questions-container'>
-      <button className='reAsk-button' onClick={this.askQuestion.bind(this)}>reAsk Something!</button>
+      <button className='reAsk-button' onClick={askQuestion.bind(this)}>reAsk Something!</button>
       <div className='questions'>
-        {this.renderQuestionList()}
+        {renderQuestions}
       </div>
     </div>
   );
