@@ -7,12 +7,15 @@ class Questions extends React.Component {
       <div className='question'>
         <div className='upvote-arrow'>
           <img src='http://i.imgur.com/nFn8U6a.png' />
-          <p>1</p>
+        {/*this is where the upvote value goes*/}
+          {/*<p>1</p>*/}
+          <p>{this.props.votes}</p>
         </div>
         <div className='question-content'>
-          <h3>How do you make flexbox work</h3>
-          <p>I kept trying over and over and shit just dont work fam</p>
-          <p>tags: HTML, CSS, Flexbox</p>
+          {/* this is where most of the rest of the stuff goes*/}
+          <h3>{this.props.question_title}</h3>
+          <p>{this.props.question_body}</p>
+          <p>{this.props.question_tags}</p>
         </div>
       </div>
     )

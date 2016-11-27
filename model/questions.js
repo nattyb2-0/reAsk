@@ -3,7 +3,7 @@ const db = require('./db');
 // queries through the database  and the results(questions) is passed to the response object
 // (res.question)to be used wherever this function is exported to
 function showAllQuestions(req, res, next) {
-  console.log('stupid question')
+  console.log('insde showAllQuestions');
   db.any('SELECT * FROM questions;')
     .then(questions => {
       res.questions = questions;

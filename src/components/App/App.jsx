@@ -14,31 +14,60 @@ class App extends React.Component {
     super(props);
     //set whatever initial states that will be changed or modified over time
       this.state = {
-      questions: []
+      questions: [
+        {
+          "id": 1,
+          "username": "taka",
+          "votes": 3,
+          "question_title": "question about position: relative",
+          "question_body": "what is this shit?",
+          "question_tags": "css"
+        },
+        {
+          "id": 2,
+          "username": "synclair",
+          "votes": 1,
+          "question_title": "How do i use flexbox?",
+          "question_body": "flexbox flexbox flexbox",
+          "question_tags": "flexbox, css, html"
+        },
+        {
+          "id": 3,
+          "username": "natty",
+          "votes": 6,
+          "question_title": "What is react used for",
+          "question_body": "Why can I not use something else other than react?",
+          "question_tags": "react"
+        }
+      ]
     }
   }
 
 //function call to the api to retrieve all questions
 getAllQuestions(){
+  console.log('inside of getAllQuestions APPjsx ')
   fetch('/api/questions/')
   //data is returned in the form of json
     .then(data => data.json())
     .then(data => {
+      console.log(data);
       // the state of the question array is updated and passed the value thats held in the
       // data object
       this.setState({
         questions: data.questions
       });
+      console.log('the true values of state --> ', this.state);
     })
-     .then(this.getAllQuestions())
-  .catch(err => console.log(err));
+     // .then(this.getAllQuestions())
+    .catch(err => console.log(err));
 }
 
 //react method for when you are mounting/binding a function to be passed along to
 // children components
-componentDidMount() {
-   this.getAllQuestions;
-  }
+// componentDidMount() {
+//   console.log('inside componentDidMount of APP.jsx')
+//    this.getAllQuestions;
+//   }
 
 // function to send a post to DB and add new question...fetches the data from api
 // and sends a post request and then calls tge get all questions after wards
@@ -94,7 +123,10 @@ createNewQuestion(question) {
           <button className='login-btn' onClick={this.login.bind(this)}></button>
         </div>
 
-        <MainBody />
+        <MainBody
+          getAllQuestions={this.getAllQuestions.bind(this)}
+          questions={this.state.questions}
+        />
 
       </div>
     )
