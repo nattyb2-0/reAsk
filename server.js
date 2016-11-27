@@ -20,8 +20,11 @@ server.listen(PORT, () => console.log('server here! listening on', PORT));
 
 const io =require('socket.io').listen(server);
 io.sockets.on('connection', (socket)=>{
-  console.log('yes')
-})
+  console.log('yes');
+  io.sockets.on('disconnect', (socket)=>{
+    console.log('hate to see you leave!!!!')
+  });
+});
 
 
 // const studentRouter = require('./routes/home');
