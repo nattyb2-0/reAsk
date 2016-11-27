@@ -14,34 +14,35 @@ class App extends React.Component {
     super(props);
     //set whatever initial states that will be changed or modified over time
       this.state = {
-      questions: [
-        {
-          "id": 1,
-          "username": "taka",
-          "votes": 3,
-          "question_title": "question about position: relative",
-          "question_body": "what is this shit?",
-          "question_tags": "css"
-        },
-        {
-          "id": 2,
-          "username": "synclair",
-          "votes": 1,
-          "question_title": "How do i use flexbox?",
-          "question_body": "flexbox flexbox flexbox",
-          "question_tags": "flexbox, css, html"
-        },
-        {
-          "id": 3,
-          "username": "natty",
-          "votes": 6,
-          "question_title": "What is react used for",
-          "question_body": "Why can I not use something else other than react?",
-          "question_tags": "react"
-        }
-      ]
+      questions: []
     }
   }
+  // sorry guys, I hate erasing things I'm not commited to delete from my life
+  // personal issues, nothing else hahahaha
+  // {
+  //   "id": 1,
+  //   "username": "taka",
+  //   "votes": 3,
+  //   "question_title": "question about position: relative",
+  //   "question_body": "what is this shit?",
+  //   "question_tags": "css"
+  // },
+  // {
+  //   "id": 2,
+  //   "username": "synclair",
+  //   "votes": 1,
+  //   "question_title": "How do i use flexbox?",
+  //   "question_body": "flexbox flexbox flexbox",
+  //   "question_tags": "flexbox, css, html"
+  // },
+  // {
+  //   "id": 3,
+  //   "username": "natty",
+  //   "votes": 6,
+  //   "question_title": "What is react used for",
+  //   "question_body": "Why can I not use something else other than react?",
+  //   "question_tags": "react"
+  // }
 
 //function call to the api to retrieve all questions
 getAllQuestions(){
@@ -54,7 +55,7 @@ getAllQuestions(){
       // the state of the question array is updated and passed the value thats held in the
       // data object
       this.setState({
-        questions: data.questions
+        questions: data
       });
       console.log('the true values of state --> ', this.state);
     })
@@ -85,7 +86,7 @@ createNewQuestion(question) {
   //   questionFormName: '',
   //   questionFormURL: ''
   // }))
-   .then(this.getAllQuestions)
+  .then(this.getAllQuestions)
   .catch(err => console.log(err));
 }
 
