@@ -20,13 +20,30 @@ server.listen(PORT, () => console.log('server here! listening on', PORT));
 
 const io =require('socket.io').listen(server);
 io.sockets.on('connection', (socket)=>{
-  io.sockets.emit('msg', {msg: 'hi there fucker'});
   console.log('works');
-  console.log(socket);
-  io.sockets.on('disconnect', (socket)=>{
-    console.log('hate to see you leave!!!!')
-  });
-});
+  socket.on('you', (pingu) => {
+  console.log('i hear the ping')
+    // io.sockets.emit('msg', {msg: 'hi there fucker'});
+      // console.log('works');
+  // console.log(socket);
+  }); // end of ping
+}); // end of sockets.on.connect
+
+
+
+
+
+
+//   }
+//   io.sockets.on('disconnect', (socket)=>{
+//     console.log('hate to see you leave!!!!')
+
+//   });
+
+// });
+// io.sockets.on('ping', (socket)=>{
+//       console.log('i hear the ping')
+//     })
 
 
 // const studentRouter = require('./routes/home');

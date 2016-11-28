@@ -24,12 +24,31 @@ class App extends React.Component {
   }
 
   socketFunction(){
-    console.log('inside socket function');
+     console.log('inside socket function');
     const socket = io('http://localhost:3000');
-    socket.on('msg', msg => {
-      console.log('data on front end side', msg);
+    console.log('socket is ', socket)
+    socket.on('msg', (content) => {
+      console.log('data on front end side', content);
+
     })
   }
+
+  //   socket.on('connection', function(socket){
+  //     console.log('shit');
+  // socket.on('msg', function(msg){
+  //   console.log('message: ' + msg);
+  // });
+
+//function to ping my server and let it now that i am alive
+sendDataPing(){
+  console.log('inside ping function');
+  const socket = io('http://localhost:3000');
+  socket.emit('you', {message: 'lets go motherfucker'});
+}
+
+
+
+
 
 //function call to the api to retrieve all questions
 getAllQuestions(){
@@ -38,13 +57,14 @@ getAllQuestions(){
   //data is returned in the form of json
     .then(data => data.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
       // the state of the question array is updated and passed the value thats held in the
       // data object
+      // console.log('this inside of getAllQuestions: ', this);
       this.setState({
         questions: data
       });
-      console.log('the true values of state --> ', this.state);
+      // console.log('the true values of state --> ', this.state);
     })
      // .then(this.getAllQuestions())
     .catch(err => console.log(err));
@@ -62,7 +82,12 @@ createNewQuestion(question) {
     method: 'POST',
     body: JSON.stringify(question)
   })
-  .then(this.getAllQuestions)
+  .then(this.sendDataPing)
+  // .then( data => {
+  //   console.log('.then works');
+  //   console.log('--->>> this inside of createNewQuestion: ', this);
+  //   this.createNewQuestion.sendDataPing;
+  // })
   .catch(err => console.log(err));
 }
 
@@ -92,7 +117,7 @@ createNewQuestion(question) {
 
         <SignUpModal />
         <SignInModal />
-        <AskQuestionsModal createNewQuestion={this.createNewQuestion}/>
+        <AskQuestionsModal createNewQuestion={this.createNewQuestion.bind(this)}/>
         <div className='cover-the-page' onClick={this.hideCoverPage.bind(this)}></div>
 
         <div className='header-container'>
