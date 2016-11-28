@@ -10,7 +10,8 @@ const bodyParser  = require('body-parser');
 const app = express();
 const server = require('http').createServer(app);
 const PORT        = process.argv[2] || process.env.port || 3000;
-
+const mdb = require('./model/db');
+const io = require('socket.io').listen(server);
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -18,11 +19,52 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 server.listen(PORT, () => console.log('server here! listening on', PORT));
 
-const io =require('socket.io').listen(server);
+function sendDataPong(){
+  console.log('inside pong function');
+  const socket = io('http://localhost:3000');
+  socket.emit('hi', {message: ' now we are lets go motherfucker'});
+
+}
+
+// function showAllQuestions(){
+//   let me= mdb.any(`
+//     SELECT *
+//     FROM questions;
+//    `)
+//     .then((users) => {
+//     //   res.users = users;
+//     console.log('--> this shit', users);
+//     // io.sockets.emit('allData', users);
+//      sendDataPong();
+//     //   // next();
+//      })
+//     .then()
+//     // .catch(error => next(error));
+// }
+
+
 io.sockets.on('connection', (socket)=>{
   console.log('works');
   socket.on('you', (pingu) => {
-  console.log('i hear the ping')
+  console.log('i hear the ping', pingu.message);
+  (()=>{
+    let me= mdb.any(`
+    SELECT *
+    FROM questions;
+   `)
+    .then((users) => {
+    //   res.users = users;
+    console.log('--> this shit', users);
+    io.emit('allData', {users});
+     // sendDataPong();
+    //   // next();
+     })
+    .then()
+    // .catch(error => next(error));
+  })()
+  // showAllQuestions();
+  // socket.emit('hi', {re:'mmmmmmmm'})
+
     // io.sockets.emit('msg', {msg: 'hi there fucker'});
       // console.log('works');
   // console.log(socket);
