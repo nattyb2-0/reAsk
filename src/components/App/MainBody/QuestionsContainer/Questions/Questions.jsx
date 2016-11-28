@@ -2,11 +2,15 @@ import React from 'react'
 import './Questions.css'
 
 class Questions extends React.Component {
+  message(e) {
+    console.log('clicked')
+  }
+
   render() {
     return(
       <div className='question'>
         <div className='upvote-arrow'>
-          <img src='http://i.imgur.com/nFn8U6a.png' />
+          <img src='http://i.imgur.com/nFn8U6a.png' onClick={this.message.bind(this)}/>
         {/*this is where the upvote value goes*/}
           {/*<p>1</p>*/}
           <p>{this.props.votes}</p>
