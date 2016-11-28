@@ -17,32 +17,6 @@ class App extends React.Component {
       questions: []
     }
   }
-  // sorry guys, I hate erasing things I'm not commited to delete from my life
-  // personal issues, nothing else hahahaha
-  // {
-  //   "id": 1,
-  //   "username": "taka",
-  //   "votes": 3,
-  //   "question_title": "question about position: relative",
-  //   "question_body": "what is this shit?",
-  //   "question_tags": "css"
-  // },
-  // {
-  //   "id": 2,
-  //   "username": "synclair",
-  //   "votes": 1,
-  //   "question_title": "How do i use flexbox?",
-  //   "question_body": "flexbox flexbox flexbox",
-  //   "question_tags": "flexbox, css, html"
-  // },
-  // {
-  //   "id": 3,
-  //   "username": "natty",
-  //   "votes": 6,
-  //   "question_title": "What is react used for",
-  //   "question_body": "Why can I not use something else other than react?",
-  //   "question_tags": "react"
-  // }
 
 //function call to the api to retrieve all questions
 getAllQuestions(){
@@ -63,13 +37,6 @@ getAllQuestions(){
     .catch(err => console.log(err));
 }
 
-//react method for when you are mounting/binding a function to be passed along to
-// children components
-// componentDidMount() {
-//   console.log('inside componentDidMount of APP.jsx')
-//    this.getAllQuestions;
-//   }
-
 // function to send a post to DB and add new question...fetches the data from api
 // and sends a post request and then calls tge get all questions after wards
 createNewQuestion(question) {
@@ -82,10 +49,6 @@ createNewQuestion(question) {
     method: 'POST',
     body: JSON.stringify(question)
   })
-  // .then(this.setState({
-  //   questionFormName: '',
-  //   questionFormURL: ''
-  // }))
   .then(this.getAllQuestions)
   .catch(err => console.log(err));
 }
