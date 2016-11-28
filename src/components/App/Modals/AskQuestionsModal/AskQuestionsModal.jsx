@@ -95,7 +95,7 @@ class AskQuestionsModal extends React.Component {
           </div>
           <div className='input-question'>
             <p>Question *</p>
-            <textarea id='question' rows="22" cols="70" placeholder="Write your question here!"></textarea>
+            <textarea id='question' rows="18" cols="70" placeholder="Write your question here!"></textarea>
           </div>
           <div className='input-tags'>
             <p>Tags</p>
