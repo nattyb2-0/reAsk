@@ -36,7 +36,7 @@ class AskQuestionsModal extends React.Component {
       'question_title': title.value,
       'question_body': question.value,
       'question_tags': tags.value,
-      'votes': 0,
+      'votes': 1,
     }
 
     title.style.border = '1px solid darkgrey'
