@@ -18,6 +18,19 @@ class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    console.log('inside component mount Appjsx for socket');
+    this.socketFunction();
+  }
+
+  socketFunction(){
+    console.log('inside socket function');
+    const socket = io('http://localhost:3000');
+    socket.on('msg', msg => {
+      console.log('data on front end side', msg);
+    })
+  }
+
 //function call to the api to retrieve all questions
 getAllQuestions(){
   console.log('inside of getAllQuestions APPjsx ')

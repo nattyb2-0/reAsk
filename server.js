@@ -20,7 +20,9 @@ server.listen(PORT, () => console.log('server here! listening on', PORT));
 
 const io =require('socket.io').listen(server);
 io.sockets.on('connection', (socket)=>{
-  console.log('yes');
+  io.sockets.emit('msg', {msg: 'hi there fucker'});
+  console.log('works');
+  console.log(socket);
   io.sockets.on('disconnect', (socket)=>{
     console.log('hate to see you leave!!!!')
   });
