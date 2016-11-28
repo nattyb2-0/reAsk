@@ -30,9 +30,14 @@ class App extends React.Component {
     socket.on('msg', (content) => {
     console.log('data on front end side', content);
     })
-       socket.on('allData', (users) => {
-      console.log('user side APPJSX', users);
-  })
+    socket.on('allData', (allQuestions) => {
+      console.log('user side APPJSX', allQuestions);
+      this.setState({
+        questions: allQuestions
+      });
+      console.log('values of the state', this.state);
+
+    })
     // socket.on('hi', (yo) => {
     //   console.log('yooooooo' );
 
