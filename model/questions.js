@@ -7,7 +7,7 @@ function showAllQuestions(req, res, next) {
   db.any('SELECT * FROM questions ORDER BY votes DESC;')
     .then(questions => {
       res.questions = questions;
-      console.log(questions)
+      // console.log(questions)
       next();
     })
     .catch(error => next(error));
