@@ -55,7 +55,7 @@ io.sockets.on('connection', (socket)=>{
     .then((users) => {
     //   res.users = users;
     console.log('--> this shit', users);
-    io.emit('allData', {users});
+    io.emit('allData', users);
      // sendDataPong();
     //   // next();
      })
